@@ -6,5 +6,5 @@ const { favoriteShows } = useFavoriteShowsStore()
 </script>
 
 <template>
-  <ShowList :shows="favoriteShows"></ShowList>
+  <ShowList :shows="favoriteShows" :showFilters="true"></ShowList>
 </template>

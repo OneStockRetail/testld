@@ -22,7 +22,20 @@ export const useFavoriteShowsStore = defineStore('favorite_shows', {
       }
     }
 
-    return { favoriteShows, pickRandomShow, toggleFavorite }
+    function matchesDuration(show: ShowWithRating, duration: string): boolean {
+      switch (duration) {
+        case 'long':
+          return show.show.runtime > 50
+        case 'medium':
+          return show.show.runtime < 50 && show.show.runtime > 25
+        case 'short':
+          return show.show.runtime < 25
+        default:
+          return false
+      }
+    }
+
+    return { favoriteShows, pickRandomShow, toggleFavorite, matchesDuration }
   },
   persist: true
 })
